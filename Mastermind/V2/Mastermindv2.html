@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<script src="Mastermindv2.js"></script>
+    <link rel="stylesheet" type="text/css" href="Mastermindv2.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+</script>
+	<meta charset="UTF-8" />
+	<title>Mastermind</title>
+</head>
+<body>
+    <div class="page">
+        <h1>
+            MasterMind<br>
+        </h1>
+        <div class="game">
+            <button id='b1' onClick="drawBoard()">Start game</button><br><br><br><br><br><br>
+            <div id='regles'><p><br><b>Le but de ce Mastermind est de trouver la combinaison de couleurs entrée par l'odinateur !</b>
+                <br> Vous avez maximum 12 essais pour le deviner. A la fin de chaque essai, entre 0 et 4 pions apparaîtront à
+                droite de la rangée:<br>- un pion rouge signifie qu'une de vos couleurs est bien placée
+                <br>- un pion blanc signifie qu'une de vos couleurs est correcte mais mal placée
+                <br><br><b>Nous vous souhaitons une agréable partie !</b></p>
+            </div>
+            <script>
+            	$(document).ready(function(){
+            		$("#rouge").hide();
+            		$("#bleu").hide();
+            		$("#vert").hide();
+            		$("#jaune").hide();
+                    $("#modifier").hide();
+                    $("#confirmer").hide();
+  					$("#b1").click(function(){
+                        $("#regles").hide()
+   						$("#b1").hide();
+   						$("h1").hide();
+   						$("#rouge").show();
+   						$("#bleu").show();
+            			$("#vert").show();
+            			$("#jaune").show();
+                        $("#modifier").show();
+                        $("#confirmer").show();
+
+  					});
+				});
+				</script>
+                <div style="display:none;">
+                    <img id="rougeP" src="images\cercle_rouge.png" width="300" height="227">
+                    <img id="bleuP" src="images\cercle_bleu.png" width="300" height="227">
+                    <img id="vertP" src="images\cercle_vert.png" width="300" height="227">
+                    <img id="jauneP" src="images\cercle_jaune.png" width="300" height="227">
+                    <img id="malPlace" src ="images\cercle_blanc.png" width="300" height="227">
+                </div>
+                <canvas id='canvas' width="460" height="960"></canvas><br>
+            <div id='centrer'>
+                
+                <button id='rouge' onClick="ajouterCouleur(0)">rouge</button>
+                <button id='bleu' onClick="ajouterCouleur(1)">bleu</button>
+                <button id='vert' onClick="ajouterCouleur(2)">vert</button>
+                <button id='jaune' onClick="ajouterCouleur(3)">jaune</button><br>
+                <br>
+                <button id='modifier' onClick="modifier()">modifier</button>
+                <button id='confirmer' onClick="verification()">confirmer</button>
+            </div>
+        </div>
+
+</body>

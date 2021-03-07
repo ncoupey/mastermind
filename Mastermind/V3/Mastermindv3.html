@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link rel="shortcut icon" href="logo.ico" />
+	<script src="Mastermindv3.js"></script>
+    <link rel="stylesheet" type="text/css" href="Mastermindv3.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+</script>
+	<meta charset="UTF-8" />
+	<title>Mastermind</title>
+</head>
+<body>
+    <h1>
+         MasterMind<br>
+    </h1>
+    <div id="bord">
+         <button id='b1' onClick="">Start game</button><br><br>
+         <button id='Facile' onClick="setDifficulty(0)">Facile</button>
+        <button id='Normal' onClick="setDifficulty(1)">Normal</button>
+        <button id='Difficile' onClick="setDifficulty(2)">Difficile</button><br><br><br>
+        <div id='regles'><p><br><b>Le but de ce Mastermind est de trouver la combinaison de couleurs entrée par l'odinateur !</b>
+                <br> Vous avez maximum 12 essais pour le deviner. A la fin de chaque essai, entre 0 et 4 pions apparaîtront à
+                droite de la rangée:<br>- un pion rouge signifie qu'une de vos couleurs est bien placée
+                <br>- un pion blanc signifie qu'une de vos couleurs est correcte mais mal placée
+                <br><br><b>Nous vous souhaitons une agréable partie !</b></p>
+    </div>
+        <script>
+            $(document).ready(function(){
+            		
+                $("#rouge").hide();
+            	$("#bleu").hide();
+            	$("#vert").hide();
+            	$("#jaune").hide();
+                $("#rose").hide();
+                $("#violet").hide();
+                $("#modifier").hide();
+                $("#confirmer").hide();
+                $("#Facile").hide();
+                $("#Normal").hide();
+                $("#Difficile").hide();
+                $("#canvas").hide();
+                $("#canvas2").hide();
+                $("#rejouer").hide();
+                $("#Victoire").hide();
+                $("#Défaite").hide();
+                $("#b1").click(function(){
+                    $("#Facile").show();
+                    $("#Normal").show();
+                    $("#Difficile").show();
+                });
+  				$("#Facile").click(function(){
+                    $("#canvas").show();
+                    $("#canvas2").show();
+                    $("#regles").hide()
+   					$("#b1").hide();
+   					$("h1").hide();
+   					$("#rouge").show();
+   					$("#bleu").show();
+            		$("#vert").show();
+            		$("#jaune").show();
+                    $("#Facile").hide();
+                    $("#Normal").hide();
+                    $("#Difficile").hide();
+                    $("#modifier").show();
+                    $("#confirmer").show();
+                });
+                $("#Normal").click(function(){
+                    $("#canvas").show();
+                    $("#canvas2").show();
+                    $("#regles").hide();
+                    $("#b1").hide();
+                    $("h1").hide();
+                    $("#rouge").show();
+                    $("#bleu").show();
+                    $("#vert").show();
+                    $("#jaune").show();
+                    $("#Facile").hide();
+                    $("#Normal").hide();
+                    $("#Difficile").hide();
+                    $("#modifier").show();
+                    $("#confirmer").show();
+                    $("#rose").show();
+                    });
+                $("#Difficile").click(function(){
+                    $("#canvas").show();
+                    $("#canvas2").show();
+                    $("#regles").hide();
+                    $("#b1").hide();
+                    $("h1").hide();
+                    $("#rouge").show();
+                    $("#bleu").show();
+                    $("#vert").show();
+                    $("#jaune").show();
+                    $("#Facile").hide();
+                    $("#Normal").hide();
+                    $("#Difficile").hide();
+                    $("#modifier").show();
+                    $("#confirmer").show();
+                    $("#rose").show();
+                    $("#violet").show();
+                });
+			});
+			</script>
+            <div style="display:none;">
+                <img id="rougeP" src="images\cercle_rouge.png" width="300" height="227">
+                <img id="bleuP" src="images\cercle_bleu.png" width="300" height="227">
+                <img id="vertP" src="images\cercle_vert.png" width="300" height="227">
+                <img id="jauneP" src="images\cercle_jaune.png" width="300" height="227">
+                <img id="roseP" src="images\cercle_rose.png" width="300" height="227">
+                <img id="violetP" src="images\cercle_violet.png" width="300" height="227">
+                <img id="malPlace" src ="images\cercle_blanc.png" width="300" height="227">
+            </div>
+            <div id="Victoire">Vous avez gagné ! Code de l'adversaire :</div>
+            <div id="Défaite">Vous avez perdu... Code de l'adversaire :</div>
+            <canvas id='canvas2' width="460" height="100"></canvas>
+            <button id='rejouer'OnClick="rejouer()">rejouer</button>
+            <canvas id='canvas' width="460" height="960"></canvas><br>
+    <div id='centrer'>
+                
+        <button id='rouge' onClick="ajouterCouleur(0)">rouge</button>
+        <button id='bleu' onClick="ajouterCouleur(1)">bleu</button>
+        <button id='vert' onClick="ajouterCouleur(2)">vert</button>
+        <button id='jaune' onClick="ajouterCouleur(3)">jaune</button>
+        <button id='rose' onClick="ajouterCouleur(4)">rose</button>
+        <button id='violet' onClick="ajouterCouleur(5)">violet</button><br>
+        <br>
+        <button id='modifier' onClick="modifier()">modifier</button>
+        <button id='confirmer' onClick="verification()">confirmer</button>
+    </div>
+</body>

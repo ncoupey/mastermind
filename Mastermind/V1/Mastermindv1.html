@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<script src="Mastermindv1.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+</script>
+	<meta charset="UTF-8" />
+	<title>Mastermind</title>
+</head>
+<body>
+    <div class="page">
+        <h1>
+            MasterMind<br>
+            <button id='b1' onClick="drawBoard()">Start game</button></br>
+        </h1>
+        <div class="game">
+            <script>
+            	$(document).ready(function(){
+            		$("#rouge").hide();
+            		$("#bleu").hide();
+            		$("#vert").hide();
+            		$("#jaune").hide();
+                    $("#modifier").hide();
+                    $("#confirmer").hide();
+  					$("#b1").click(function(){
+   						$("#b1").hide();
+   						$("h1").hide();
+   						$("#rouge").show();
+   						$("#bleu").show();
+            			$("#vert").show();
+            			$("#jaune").show();
+                        $("#modifier").show();
+                        $("#confirmer").show();
+
+  					});
+				});
+				</script>
+                <div style="display:none;">
+                    <img id="rougeP" src="images\cercle_rouge.png" width="300" height="227">
+                    <img id="bleuP" src="images\cercle_bleu.png" width="300" height="227">
+                    <img id="vertP" src="images\cercle_vert.png" width="300" height="227">
+                    <img id="jauneP" src="images\cercle_jaune.png" width="300" height="227">
+                </div>
+            
+            <canvas id='canvas' width="10000" height="960"></canvas>
+            <div>
+            <button id='rouge' onClick="ajouterCouleur(0)">rouge</button>
+            <button id='bleu' onClick="ajouterCouleur(1)">bleu</button>
+            <button id='vert' onClick="ajouterCouleur(2)">vert</button>
+            <button id='jaune' onClick="ajouterCouleur(3)">jaune</button>
+            <button id='modifier' onClick="modifier()">modifier</button>
+            <button id='confirmer' onClick="verification()">confirmer</button>
+            </div>
+        </div>
+        <div class="options">
+            <div id="result" class="result">
+
+            </div>
+            <div class="menus">
+            
+            </div>
+        </div>
+    </div>
+
+</body>
